@@ -28,8 +28,8 @@ def setup_books(collector, books):
         collector.add_new_book(book)
     return collector
 
-# Фикстура, которая автоматически добавляет книгу в избранное
+# Фикстура для автоматического добавления книги в избранное
 @pytest.fixture
-def favorite_books(collector, books):
-    collector.add_new_book(books['book_1'])
-    collector.add_book_in_favorites(books['book_1'])
+def favorite_books(setup_books, books):
+    setup_books.add_book_in_favorites(books['book_1'])
+    return setup_books
