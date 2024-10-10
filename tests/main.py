@@ -16,13 +16,9 @@ class BooksCollector:
         if name in self.books_genre and genre in self.genre:
             self.books_genre[name] = genre
 
-    # **Добавленный метод** для получения жанра конкретной книги
+    # получаем жанр книги по её имени
     def get_book_genre(self, name):
         return self.books_genre.get(name)
-
-    # возвращаем только книги с непустыми жанрами
-    def get_books_genre(self):
-        return {name: genre for name, genre in self.books_genre.items() if genre}
 
     # выводим список книг с определённым жанром
     def get_books_with_specific_genre(self, genre):
@@ -32,6 +28,10 @@ class BooksCollector:
                 if book_genre == genre:
                     books_with_specific_genre.append(name)
         return books_with_specific_genre
+
+    # получаем словарь books_genre
+    def get_books_genre(self):
+        return self.books_genre
 
     # возвращаем книги, подходящие детям
     def get_books_for_children(self):
